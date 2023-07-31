@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .animate-content {
+            width: 300px;
+            height: 100px;
+            margin: 120px auto 0;
+        }
+
+        .animate-content .animate-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: inherit;
+        }
+    </style>
+</head>
+<body>
+<div class="animate-content">
+    <div class="animate-wrap">
+        <div class="animate-box" id="app0"></div>
+    </div>
+    <div class="animate-wrap">
+        <div class="animate-box" id="app1"></div>
+    </div>
+    <div class="animate-wrap">
+        <div class="animate-box" id="app2"></div>
+    </div>
+</div>
+<script src="ali-animate.js"></script>
+<script>
+    window.onload = function () {
+
+        var ss = [
+            'https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/6183425731.png',
+            'https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/6302905416.png',
+            'https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/5521581653.png',
+            'https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/1731200321.png',
+            'https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/8471330059.png',
+            'https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/3765979071.png',
+            'https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/3662858551.png',
+            'https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/5655318552.png',
+            'https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/4064388207.png',
+            'https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/7272151504.png'
+        ]
+        var avatarArr = [{
+            "name": "avatar1",
+            "src": "https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/6183425731.png"
+        }, {
+            "name": "avatar2",
+            "src": "https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/6302905416.png"
+        }, {
+            "name": "avatar3",
+            "src": "https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/5521581653.png"
+        }, {
+            "name": "avatar4",
+            "src": "https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/1731200321.png"
+        }, {
+            "name": "avatar5",
+            "src": "https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/8471330059.png"
+        }, {
+            "name": "avatar6",
+            "src": "https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/3765979071.png"
+        }, {
+            "name": "avatar7",
+            "src": "https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/3662858551.png"
+        }, {
+            "name": "avatar8",
+            "src": "https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/5655318552.png"
+        }, {
+            "name": "avatar9",
+            "src": "https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/4064388207.png"
+        }, {"name": "avatar10", "src": "https://justwayfile.s3.us-west-2.amazonaws.com/web/230728/7272151504.png"}]
+
+        const avatar0 = new AvatarAnimate({
+            el: '#app0',  // 根元素
+            max: 4,  // 动画元素
+            isBg: true, // 是否背景图片展示
+            delay: 920, // 动画时间
+            autoPlay: 920, // 动画周期
+            isReverse: false, // 资源是否倒序
+            imgArr: avatarArr,  // 需轮播的动画数组
+            direction: 'left',  // 动画方向
+            callback: function (res) {  // 每次动画后的回调函数
+                console.log(res.animateArr[0].name)
+            }
+        });
+
+        const avatar1 = new AvatarAnimate({
+            el: '#app1',
+            max: 5,
+            delay: 1500,
+            autoPlay: 1500,
+            isReverse: false,
+            imgArr: [
+                {
+                    name: '鼠',
+                    src: 'sx/鼠1.webp',
+                },
+                {
+                    name: '牛',
+                    src: 'sx/牛2.webp',
+                },
+                {
+                    name: '虎',
+                    src: 'sx/虎3.jpg',
+
+                }, {
+                    name: '兔',
+                    src: 'sx/兔4.jpg'
+                }, {
+                    name: '龙',
+                    src: 'sx/龙5.webp'
+                }, {
+                    name: '蛇',
+                    src: 'sx/蛇6.webp'
+                }, {
+                    name: '板子',
+                    src: 'banner-icon2.png'
+                }
+            ],
+            // callback: function (res) {
+            //     console.log(res.animateArr[0].name)
+            // }
+        });
+        const avatar2 = new AvatarAnimate({
+            el: '#app2',
+            max: 3,
+            delay: 1000,
+            autoPlay: 1000,
+            isReverse: true,
+            imgArr: [
+                {
+                    name: '',
+                    src: 'sx/banner-icon2.png'
+                },
+                {
+                    name: '',
+                    src: 'sx/banner-icon3.png'
+                },
+                {
+                    name: '',
+                    src: 'sx/banner-icon7.png'
+                },
+                {
+                    name: '',
+                    src: 'sx/banner-icon7.png'
+                },
+                {
+                    name: '',
+                    src: 'sx/0256.jpg'
+                }
+            ]
+        });
+    }
+
+</script>
+</body>
+</html>
